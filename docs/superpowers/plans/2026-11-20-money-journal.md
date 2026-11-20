@@ -72,7 +72,7 @@ tests/*.test.ts                           Vitest unit tests
 
 **Files:** whole new project in this folder; `vitest.config.ts`; `tests/smoke.test.ts`
 
-- [ ] **Step 1:** Run `npx create-next-app@latest . --ts --tailwind --eslint --app --src-dir --import-alias "@/*"` (the `docs/` folder already here is fine).
+- [ ] **Step 1:** In the repo root (`journal-next/`), remove the placeholder README (`git rm README.md`; create-next-app refuses to run next to it and writes its own). Then run `npx create-next-app@latest . --ts --tailwind --eslint --app --src-dir --import-alias "@/*"` (the `docs/` folder already here is fine).
 - [ ] **Step 2:** Run `npm run dev`, open http://localhost:3000. Expected: Next.js starter page.
 - [ ] **Step 3:** Replace `src/app/page.tsx` with a page showing the heading "Money Journal". Check in the browser.
 - [ ] **Step 4:** `npm install -D vitest`, add `"test": "vitest run"` to `package.json`, add `vitest.config.ts` with the `@` alias pointing to `src`.
@@ -343,7 +343,7 @@ expect(isAllowedEmail("me@gmail.com", "")).toBe(false)
 
 **Files:** Modify `package.json` (build script), `README.md`
 
-- [ ] **Step 1:** `gh auth status`. Expected: the active account is **Namostpc**. If not, `gh auth switch --user Namostpc`. Then `gh repo create journal-projects --private --source . --push`.
+- [ ] **Step 1:** The repo already exists: `Namostpc/journal-next`, remote `https://Namostpc@github.com/Namostpc/journal-next.git`, pushing with a Namostpc fine-grained token stored in the macOS keychain. Run `git push`. Expected: no `denied to namo443` error.
 - [ ] **Step 2:** Set the build script to `prisma generate && prisma migrate deploy && next build`.
 - [ ] **Step 3:** Import the repo in Vercel. Add all env vars from `.env.example`, with production values. Use the Neon connection string for production (the same DB or a separate Neon branch, your call).
 - [ ] **Step 4:** In Google Cloud Console, add the redirect URI `https://<your-app>.vercel.app/api/auth/callback/google`.
